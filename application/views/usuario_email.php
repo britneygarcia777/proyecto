@@ -14,24 +14,53 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background: url(<?php echo base_url();?>img/img3.jpg) no-repeat;background-position: center center; background-size: cover; background-attachment: fixed;">
 <div class="login-box">
-  <div class="card card-outline card-primary">
+  <div class="bg-dark opacity-25">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Registrate </b>con tu correo</a>
+      <a href="../../index2.html" class="h1"><b>Registra </b>tus datos</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Se encviara un codigo de verificación a tu correo electrónico </p>
+      <p class="login-box-msg">Se enviarà un codigo de verificación a tu correo electrónico </p>
 <?php 
-echo form_open_multipart('usuariocontrl/enviaremail', array('id'=>'form1','class'=>'needs-validation','method'=>'post'));
-?>
+echo form_open_multipart('usuariocontrl/validacion');
+?>      
+        
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="email">
+          <input autocapitalize="words" type="text" class="form-control bg-transparent text-light" placeholder="Nombre" name="nombre" id="nombre" value="<?= set_value('nombre'); ?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <span class="text-danger"><?= form_error('nombre'); ?></span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control bg-transparent text-light" placeholder="Primer Apellido" name="apellido1" id="apellido1" value="<?= set_value('apellido1'); ?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <span class="text-danger"><?= form_error('apellido1'); ?></span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control bg-transparent text-light" placeholder="Segundo Apellido" name="apellido2" id="apellido2" value="<?= set_value('apellido2'); ?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <span class="text-danger"><?= form_error('apellido2'); ?></span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control bg-transparent text-light" placeholder="Email" name="email" id="email" value="<?= set_value('email'); ?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          <span class="text-danger"><?= form_error('email'); ?></span>
         </div>
         <div class="row">
           <div class="col-12">
