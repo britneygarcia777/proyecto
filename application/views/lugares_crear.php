@@ -76,7 +76,7 @@ echo form_open_multipart('guiacontrl/agregarubibd');
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="autocomplete">Búsqueda de Municipios:</label>
+                        <label for="autocomplete">Municipio</label>
                         <input type="text" id="busquedaMunicipio" class="form-control" style="width: 100%;">
                       </div>
                     </div>
