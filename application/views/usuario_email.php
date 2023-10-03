@@ -25,52 +25,80 @@
 <?php 
 echo form_open_multipart('usuariocontrl/validacion');
 ?>      
+        <div class="seccion1">
+            <div class="input-group mb-3">
+              <input autocapitalize="words" type="text" class="form-control bg-transparent text-light" placeholder="Nombre" name="nombre" id="nombre" value="<?= set_value('nombre'); ?>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+              <span class="text-danger"><?= form_error('nombre'); ?></span>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control bg-transparent text-light" placeholder="Primer Apellido" name="apellido1" id="apellido1" value="<?= set_value('apellido1'); ?>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+              <span class="text-danger"><?= form_error('apellido1'); ?></span>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control bg-transparent text-light" placeholder="Segundo Apellido" name="apellido2" id="apellido2" value="<?= set_value('apellido2'); ?>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+              <span class="text-danger"><?= form_error('apellido2'); ?></span>
+            </div>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control bg-transparent text-light" placeholder="Email" name="email" id="email" value="<?= set_value('email'); ?>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+              <span class="text-danger"><?= form_error('email'); ?></span>
+            </div>
+            
+            <button type="button" onclick="mostrarSeccion2()">Siguiente</button>
+        </div>
+        <div class="seccion2">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control bg-transparent text-light" placeholder="Telefono" name="telefono" id="telefono" value="<?= set_value('telefono'); ?>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+              <span class="text-danger"><?= form_error('nombre'); ?></span>
+            </div>
+            
+            <div class="input-group mb-3">
+              <input type="date" class="form-control bg-transparent text-light" name="fechaN" id="fecha_nacimiento" value="<?= set_value('fecha_nacimiento'); ?>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+              <span class="text-danger"><?= form_error('nombre'); ?></span>
+            </div>
+            
+           <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+              </div>
+              <!-- /.col -->
+            </div>
+        </div>        
+
         
-        <div class="input-group mb-3">
-          <input autocapitalize="words" type="text" class="form-control bg-transparent text-light" placeholder="Nombre" name="nombre" id="nombre" value="<?= set_value('nombre'); ?>">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-          <span class="text-danger"><?= form_error('nombre'); ?></span>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control bg-transparent text-light" placeholder="Primer Apellido" name="apellido1" id="apellido1" value="<?= set_value('apellido1'); ?>">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-          <span class="text-danger"><?= form_error('apellido1'); ?></span>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control bg-transparent text-light" placeholder="Segundo Apellido" name="apellido2" id="apellido2" value="<?= set_value('apellido2'); ?>">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-          <span class="text-danger"><?= form_error('apellido2'); ?></span>
-        </div>
-        <div class="input-group mb-3">
-          <input type="email" class="form-control bg-transparent text-light" placeholder="Email" name="email" id="email" value="<?= set_value('email'); ?>">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-          <span class="text-danger"><?= form_error('email'); ?></span>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-          </div>
-          <!-- /.col -->
-        </div>
 <?php
 echo form_close();
 ?>
+      
       <p class="mt-3 mb-1">
         <a href="login.html">Login</a>
       </p>
@@ -79,7 +107,13 @@ echo form_close();
   </div>
 </div>
 <!-- /.login-box -->
-
+        <script>
+          function mostrarSeccion2() {
+              // Mostrar la segunda sección y ocultar la primera
+              document.querySelector('.seccion1').style.display = 'none';
+              document.querySelector('.seccion2').style.display = 'block';
+          }
+        </script>
 <!-- jQuery -->
 <script src="<?php echo base_url();?>/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

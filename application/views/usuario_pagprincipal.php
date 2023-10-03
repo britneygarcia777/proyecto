@@ -7,7 +7,7 @@
 	<script src="<?php echo base_url();?>bootstrap/js/bootstrap.js"></script>
 
 </head>
-<body style="background: url(<?php echo base_url();?>img/fondo2.jpg) no-repeat;background-size: cover;background-attachment: fixed;">
+<body style="background: url(<?php echo base_url();?>img/fondo2.jpg) no-repeat;background-size: cover;background-attachment: fixed;"class="">
 
 	<div class="container">
 		<header class="text-white">
@@ -36,7 +36,7 @@
 				<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 		  			<div class="carousel-inner">
 					    <div class="carousel-item active">
-					      <img src="img/img3.png" class="d-block w-100 img-fluid" alt="...">
+					      
 					    </div>
 					    <div class="carousel-item">
 					      <img src="img/img1.jpg" class="d-block w-100" alt="...">

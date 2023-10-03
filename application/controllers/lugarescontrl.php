@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Guiacontrl extends CI_Controller {
+class Lugarescontrl extends CI_Controller {
 
 	public function index()
 	{
@@ -14,42 +14,28 @@ class Guiacontrl extends CI_Controller {
 		$this->load->view('guia_lista',$data);
 		$this->load->view('inc/pie');
 	}
-	public function paqueteslist()
-	{
-		$lista=$this->paquete_model->listapaquetes();
-		$data['paquete']=$lista;
-
-		$this->load->view('incguia/cabecera');
-		$this->load->view('incguia/menusuperior');
-		$this->load->view('incguia/menulateral');
-		$this->load->view('paquete_lista',$data);
-		$this->load->view('incguia/pie');
-	}
 	public function agregar()
 	{
-		//mostrar un formulario (vista) para que el guia creee nuevos paquetes tours
+		//mostrar un formulario (vista) para que el administrador agregue nuevos guias
 		$this->load->view('incguia/cabecera');
 		$this->load->view('incguia/menusuperior');
 		$this->load->view('incguia/menulateral');
-		$this->load->view('paquete_crear');
+		$this->load->view('lugares_crear');
 		$this->load->view('incguia/pie');
 	}
 	public function agregarbd()
 	{
 		//llega informacion de la vista guia_formulario
 		//atrib. bd 			formulario
-		$data['nombreProyecto']=$_POST['nombre'];
-		$data['descripcion']=$_POST['descripcion'];
-		$data['fechaInicioFin']=$_POST['fechaI'];
-		$data['capacidad']=$_POST['capacidad'];
-		$data['precio']=$_POST['precio'];
-		$data['dificultad']=$_POST['dificultad'];
-		$data['idguia']=3;
+		$data['nombre']=$_POST['nombre'];
+		$data['latitud']=$_POST['latitud'];
+		$data['longitud']=$_POST['longitud'];	
+		$data['municipio']=$_POST['municipio'];	
 
-		//llevamos la informacion a la basedeDatos en paquete_model al metodo agregarpaquete
-		$this->paquete_model->agregarpaquete($data);
+		//llevamos la informacion a la basedeDatos en guia_model al metodo agrgarguia
+		$this->lugares_model->agregarlugar($data);
 		//refrescar la pagina
-		
+		redirect('Lugarescontrl/lugares_crear','refresh');
 	}
 	public function modificar()
 	{	//segunda linea envia variable a moficar en model
@@ -113,20 +99,6 @@ class Guiacontrl extends CI_Controller {
 		$id=$_POST['idguia'];
 		$this->guia_model->eliminarGuia($id);
 		redirect('Admincontrl/deshabilitados','refresh');
-	}
-	public function agregarubibd()
-	{
-		//llega informacion de la vista guia_formulario
-		//atrib. bd 			formulario
-		$data['nombre']=$_POST['nombre'];
-		$data['latitud']=$_POST['latitud'];
-		$data['longitud']=$_POST['longitud'];
-		
-
-		//llevamos la informacion a la basedeDatos en paquete_model al metodo agregarpaquete
-		$this->paquete_model->agregarubicacion($data);
-		//refrescar la pagina
-		
 	}
 	
 }

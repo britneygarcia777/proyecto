@@ -38,27 +38,27 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                USUARIOS GUIAS
+                PAQUETES TURISTICOS
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url();?>index.php/admincontrl/index" class="nav-link">
+                <a href="<?php echo base_url();?>index.php/guiacontrl/paqueteslist" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de guias</p>
+                  <p>Lista de paquetes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>index.php/admincontrl/agregar" class="nav-link">
+                <a href="<?php echo base_url();?>index.php/guiacontrl/agregar" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Registrar guia</p>
+                  <p>Crear nuevo paquete</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url();?>index.php/admincontrl/deshabilitados" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Deshabilitados</p>
+                  <p>Paquetes deshabilitados</p>
                 </a>
               </li>
             </ul>
@@ -76,20 +76,20 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Layout Options
+                Lugares
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../layout/top-nav.html" class="nav-link">
+                <a href="<?php echo base_url();?>index.php/lugarescontrl/agregar" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
+                  <p>Crear Nuevo Lugar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Top Navigation + Sidebar</p>
                 </a>

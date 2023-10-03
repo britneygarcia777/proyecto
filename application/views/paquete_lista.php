@@ -56,7 +56,7 @@
 ?>
                   <tr>
                       <td><?php echo $indice;?></td>
-                      <td><?php echo $row->nombre?></td>
+                      <td><?php echo $row->nombreProyecto?></td>
                       <td><?php echo $row->descripcion?></td>
                       <td><?php echo $row->fechaInicioFin?></td>
                       <td><?php echo $row->capacidad?></td>

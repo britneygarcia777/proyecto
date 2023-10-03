@@ -27,6 +27,8 @@ class Usuariocontrl extends CI_Controller {
     $data['segundoApellido'] = $_POST['apellido2'];
     $data['email'] = $_POST['email'];// Usamos la variable $email almacenada anteriormente
     $data['contrasenia'] =$password;
+    $data['telefono']=$_POST['telefono'];
+	$data['fechaNacimiento']=$_POST['fechaN'];
     $data['rol'] = 'turista';
 
     // Llevamos la información a la base de datos en guia_model al método agregarguia
@@ -43,6 +45,8 @@ class Usuariocontrl extends CI_Controller {
 	    $this->form_validation->set_rules('apellido1', 'Apellido', 'trim|required|alpha|max_length[45]');
 	    $this->form_validation->set_rules('apellido2', 'Segundo Apellido', 'trim|alpha|max_length[45]');
 	    $this->form_validation->set_rules('email', 'Correo Electrónico', 'trim|required|valid_email');
+	    $this->form_validation->set_rules('telefono', 'Teléfono', 'trim|required|numeric|exact_length[10]');
+	    $this->form_validation->set_rules('fecha_nacimiento', 'Fecha de Nacimiento', 'trim|required|valid_date');
 
 	    if ($this->form_validation->run() === FALSE)
 	    {
@@ -79,6 +83,6 @@ class Usuariocontrl extends CI_Controller {
 	        echo 'Error al enviar el correo electrónico: ' . $this->email->print_debugger();
 	    }
 	}
-
+	
 }
 
