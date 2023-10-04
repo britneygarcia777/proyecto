@@ -1,36 +1,30 @@
 <?php
-	class Paquete_model extends CI_Model{
+	class Lugares_model extends CI_Model{
 
-		public function agregarpaquete($data)
+		public function agregarlugar($data)
 		{
 			//insertamos en la tabla paquetestour la informacion de data
-			$this->db->insert('paquetestour',$data);
+			$this->db->insert('lugares',$data);
 		}
-		public function listapaquetes()
+		public function listalugares()
 		{
 			$this->db->select('*');
-			$this->db->from('paquetestour');
-			$this->db->join('usuario','usuario.id=paquetestour.idguia');
-			$this->db->where('usuario.id',3);
+			$this->db->from('lugares');
 			return $this->db->get();
 		}
-		public function agregarubicacion($data)
-		{
-			//insertamos en la tabla paquetestour la informacion de data
-			$this->db->insert('ubicaciones',$data);
-		}
-		public function recuperarGuia($id)
+		public function recuperarLugar($id)
 		{
 			$this->db->select('*');
-			$this->db->from('usuario');
-			$this->db->where('id',$id);
+			$this->db->from('lugares');
+			$this->db->where('idlugares',$id);
 			return $this->db->get();
 		}
-		public function modificarGuia($id,$data)
+		public function modificarLugar($id,$data)
 		{
 			// 			atrib.BD
-			$this->db->where('id',$id);
-			$this->db->update('usuario',$data);
+			$this->db->where('idlugares',$id);
+			$this->db->update('lugares',$data);
+			
 		}
 		public function listaguiasdes()
 		{
@@ -40,11 +34,11 @@
 			$this->db->where('estado',0);
 			return $this->db->get();
 		}
-		public function eliminarGuia($id)
+		public function eliminarLugar($id)
 		{
 			// 			atrib.BD
-			$this->db->where('id',$id);
-			$this->db->delete('usuario');
+			$this->db->where('idlugares',$id);
+			$this->db->delete('lugares');
 		}
 	}
 ?>

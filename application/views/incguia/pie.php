@@ -50,6 +50,7 @@
 <script src="<?php echo base_url();?>/adminlte/plugins/dropzone/min/dropzone.min.js"></script>
 <script src="<?php echo base_url();?>/adminlte/dist/js/adminlte.min.js"></script>
 <script src="<?php echo base_url();?>/adminlte/dist/js/demo.js"></script>
+<script src="<?php echo base_url();?>/adminlte/dist/js/adminlte.js"></script>
 <!-- Page specific script -->
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

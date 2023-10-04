@@ -41,8 +41,10 @@
             </div>
             <div class="card-body">
 <?php
-echo form_open_multipart('lugarescontrl/agregarbd');
-?>        
+foreach ($lugares->result() as $row) {
+echo form_open_multipart('lugarescontrl/modificarbd');
+?>     
+<input type="hidden" name="idlugar" value="<?php echo $row->idlugares?>">
               <div class="row">
                 <div class="col-md-9">
                   <div id="mapa"></div>
@@ -50,15 +52,15 @@ echo form_open_multipart('lugarescontrl/agregarbd');
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="inputEstimatedBudget">Nombre</label>
-                    <textarea type="text" id="nombre" class="form-control" name="nombre"></textarea>
+                    <textarea type="text" id="nombre" class="form-control" name="nombre" value="<?php echo $row->nombre;?>"></textarea>
                   </div>             
                   <div class="form-group">
                     <label for="inputSpentBudget">Latitud</label>
-                    <input type="decimal" id="latitud" class="form-control" name="latitud">
+                    <input type="decimal" id="latitud" class="form-control" name="latitud" value="<?php echo $row->latitud;?>">
                   </div>
                   <div class="form-group">
                     <label for="inputEstimatedDuration">Longitud</label>
-                    <input type="decimal" id="longitud" class="form-control" name="longitud">
+                    <input type="decimal" id="longitud" class="form-control" name="longitud" value="<?php echo $row->longitud;?>">
                   </div>
                   
                 </div>
@@ -78,7 +80,7 @@ echo form_open_multipart('lugarescontrl/agregarbd');
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="autocomplete">mucipio a agregar</label>
-                          <input type="text" id="busquedaMunicipio" class="form-control" style="width: 100%;" name="municipio">
+                          <input type="text" id="busquedaMunicipio" class="form-control" style="width: 100%;" name="municipio" value="<?php echo $row->municipio;?>">
                         </div>                     
                       </div>
                       <div class="col-md-6 my-3">
@@ -112,9 +114,9 @@ echo form_open_multipart('lugarescontrl/agregarbd');
                     <!-- /.card -->
                 </div>
               </div>
-               
 <?php
 echo form_close();
+}//fin del foreache
 ?>
             </div>
             <!-- /.card-body -->
@@ -139,11 +141,11 @@ echo form_close();
 
     <!-- /.script para mostrar el mapa -->
      <script>
-       let map=L.map('mapa').setView([-17.388435,-66.159595],12);
+       let map=L.map('mapa').setView([-17.42113,-66.14654],12);
        //colocamos capa
        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
        //L.marker([-17.42113,-66.14654]).addTo(map).bindPopup("Mi ubicacion").openPopup();
-       var marcadorActual = null;
+       var marcadorActual = map;
        map.on('click',onMapClick);
        function onMapClick(e){
         var latitudInput = document.getElementById("latitud");

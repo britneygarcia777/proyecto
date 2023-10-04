@@ -5,14 +5,14 @@ class Lugarescontrl extends CI_Controller {
 
 	public function index()
 	{
-		$lista=$this->guia_model->listaguias();
-		$data['guia']=$lista;
+		$lista=$this->lugares_model->listalugares();
+		$data['lugar']=$lista;
 
-		$this->load->view('inc/cabecera');
-		$this->load->view('inc/menulateral');
-		$this->load->view('inc/menusuperior');
-		$this->load->view('guia_lista',$data);
-		$this->load->view('inc/pie');
+		$this->load->view('incguia/cabecera');
+		$this->load->view('incguia/menulateral');
+		$this->load->view('incguia/menusuperior');
+		$this->load->view('lugar_lista',$data);
+		$this->load->view('incguia/pie');
 	}
 	public function agregar()
 	{
@@ -35,34 +35,32 @@ class Lugarescontrl extends CI_Controller {
 		//llevamos la informacion a la basedeDatos en guia_model al metodo agrgarguia
 		$this->lugares_model->agregarlugar($data);
 		//refrescar la pagina
-		redirect('Lugarescontrl/lugares_crear','refresh');
+		redirect('Lugarescontrl/agregar','refresh');
 	}
 	public function modificar()
 	{	//segunda linea envia variable a moficar en model
 		//variable 		id traida de form
-		$id=$_POST['idguia'];
-		$data['infoguia']=$this->guia_model->recuperarGuia($id);
+		$id=$_POST['idlugar'];
+		$data['lugares']=$this->lugares_model->recuperarLugar($id);
 		
-		$this->load->view('inc/cabecera');
-		$this->load->view('inc/menulateral');
-		$this->load->view('inc/menusuperior');
-		$this->load->view('guia_modificar',$data);
-		$this->load->view('inc/pie');
+		$this->load->view('incguia/cabecera');
+		$this->load->view('incguia/menulateral');
+		$this->load->view('incguia/menusuperior');
+		$this->load->view('lugares_modificar',$data);
+		$this->load->view('incguia/pie');
 	}
 	public function modificarbd()
 	{
 		//atrib. BD 			FORM
-		$id=$_POST['idguia'];
+		$id=$_POST['idlugar'];
 
 		$data['nombre']=$_POST['nombre'];
-		$data['primerApellido']=$_POST['apellido1'];
-		$data['segundoApellido']=$_POST['apellido2'];
-		$data['email']=$_POST['correo'];
-		$data['telefono']=$_POST['telefono'];
-		$data['fechaNacimiento']=$_POST['fechaN'];
+		$data['latitud']=$_POST['latitud'];
+		$data['longitud']=$_POST['longitud'];
+		$data['municipio']=$_POST['municipio'];
 
-		$this->guia_model->modificarGuia($id,$data);
-		redirect('Admincontrl/index','refresh');
+		$this->lugares_model->modificarLugar($id,$data);
+		redirect('Lugarescontrl/index','refresh');
 	}
 	public function deshabilitarbd()
 	{
@@ -96,9 +94,9 @@ class Lugarescontrl extends CI_Controller {
 	public function eliminarbd()
 	{	//segunda linea envia variable a eliminar en model
 		//variable 		id traida de form
-		$id=$_POST['idguia'];
-		$this->guia_model->eliminarGuia($id);
-		redirect('Admincontrl/deshabilitados','refresh');
+		$id=$_POST['idlugar'];
+		$this->lugares_model->eliminarLugar($id);
+		redirect('Lugarescontrl/index','refresh');
 	}
 	
 }
