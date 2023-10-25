@@ -82,3 +82,4 @@ userName.addEventListener("input", (e) => validateNumbers("Solo se aceptan letra
 userap1.addEventListener("input", (e) => validateNumbers("Solo se aceptan letras",  "Primer Apellido", e));
 userap2.addEventListener("input", (e) => validateNumbers("Solo se aceptan letras",  "Segundo Apellido", e));
 useremail.addEventListener("input", validateEmailFormat);
+

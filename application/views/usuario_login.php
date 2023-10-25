@@ -27,10 +27,12 @@
 		</span>
 		<div class="form-box login">
 			<h2>Login</h2>
-			<form action="#">
+<?php 
+echo form_open_multipart('usuariocontrl/validarlogin', array('id' => 'form1', 'method' => 'post'));
+?>
 				<div class="input-box">
 					<span class="icon"><i class='bx bxs-envelope'></i></span>
-					<input type="email" name="am" id="em" required>
+					<input type="email" name="email" id="em" required>
 					<label for="em">Email</label>
 				</div>
 				<div class="input-box">
@@ -45,17 +47,20 @@
 					<a href="#">Forgot Pasword</a>
 				</div>
 				<button type="submit" class="btn">Login</button>
+				
+<?php
+echo form_close();
+?>
 				<div class="login-register">
 					<p>No tienes una cuenta?<a href="#" class="register-link">Registrarse</a></p>
 				</div>
-			</form>
 		</div>
 
 
 		<div class="form-box register">
 			<h2>Registrate</h2>
 <?php 
-echo form_open_multipart('usuariocontrl/agregarbd');
+echo form_open_multipart('usuariocontrl/verificarEmail');
 ?>
 				<div class="input-box">
 					<span class="icon"><i class='bx bxs-user'></i></span>
@@ -78,19 +83,21 @@ echo form_open_multipart('usuariocontrl/agregarbd');
 				</div>
 				<div class="input-box">
 					<span class="icon"><i class='bx bxs-envelope'></i></span>
-					<input type="email" name="email" id="email" required>
+					<input type="email" name="email" id="email" required >
 					<label for="email">Email</label>
 					<span></span>
 				</div>
 				<button type="submit" class="btn">Registrar</button>
 				<div class="login-register">
 					<p>Ya tienes cuenta?<a href="#" class="login-link"> Loguearse</a></p>
-				</div>
+				</div>							
 <?php
 echo form_close();
 ?>
+				
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="<?php echo base_url();?>/assets/script.js"></script>
 </body>
 </html>

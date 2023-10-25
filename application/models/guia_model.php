@@ -41,5 +41,6 @@
 			$this->db->where('id',$id);
 			$this->db->delete('usuario');
 		}
+		
 	}
 ?>
